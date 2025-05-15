@@ -32,17 +32,39 @@
             $_SESSION['answears'] = array();
         }
         else {
-            $_SESSION['answears'][$answear] = $user;
+            $_SESSION['answears'][$user] = $answear;
         }
     }
-    function confirmAnswer($answear, $user) {
+    function confirmAnswer($confirmendAnswear, $user) {
         if(!isset($_SESSION['confirmedAnswears'])) {
             $_SESION['confirmedAnswears'] = array();
         }
         else {
-            if(isset($_SESSION['answears'][$answear])) {
-                $_SESSION['confirmedAnswears'][$answer] = ($user => $_SESSION['answears'][$answear]);
+            if(isset($_SESSION['answears'][])) {
+                foreach ($_$SESSION['answears'] as $userOfAnswear=>$answear) {
+                    if($_SESSION['answears'][$userOfAnswear] == $confirmendAnswear) {
+                        $_SESSION['confirmedAnswears'][] = array('answear' => $confirmendAnswear, 'user' => $user, '$userOfAnswear' => $userOfAnswear);
+                    }
+                }
             }
         }
+    }
+    function fetchCorrectAnswer($user) {
+        $conn = connectDB();
+        $query = "SELECT PrawidlowaOdp FROM pytania WHERE "
+        $response = $conn->query()
+    }
+    function sortDescAnswear() {
+
+    }
+    //posortowane od najwiekszej do najmniejszej answear
+    function closestAnswear($confirmedAnswears, $correctAnswear) {
+        sort($confirmedAnswears);
+        for($i=0;$i<sizeof($confirmedAnswears);$i++) {
+            if($confirmedAnswears[$i]['answear'] <= $correctAnswear) {
+                return $confirmedAnswears[$i];
+            }
+        }
+        return array();
     }
 ?>

@@ -6,23 +6,20 @@
     <title>Gra ryzyk-fizyk</title>
 </head>
 <body>
-    <?php
-        require_once "dbconnect.php";
-        $conn = mysqli_connect($host, $user, $pass, $db) or die("Błąd połączenia!");
-    ?>
-<h1>Gra Ryzyk Fizyk</h1>
-<select name="iloscgraczy" id="iloscgraczy">
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-    <option>7</option>
-    <option>8</option>
-</select>
-<div>
-
-</div>
+    <h1>Gra ryzyk-fizyk</h1>
+    <h2>Podaj ilość graczy</h2>
+    <form action="gra.php" method="POST">
+        <select name="playercount">
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+        </select>
+        <button type="submit">Graj</button>
+    </form>
 
 </body>
 </html>
