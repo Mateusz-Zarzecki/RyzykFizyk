@@ -5,6 +5,11 @@
     $pass = "";
     $db = "ryzykfizyk";
 
+    function initData() {
+        $_SESSION['userCount'] = array();
+        $_SESSION['usersMoney'] = array();
+        $_SESSION['remainingQuestions'] = array();
+    }
     function connectDB() {
         $conn = new mysqli($host, $user, $pass, $db);
         if($conn->connect_error) {
@@ -17,6 +22,21 @@
         $_SESSION['usersMoney'] = array();
         for($i; $i<$userCount; $i++) {
             $_SESION['usersMoney'][$i] = 200;
+        }
+    }
+    function setQuestions() {
+        $conn = connectDB();
+        $query = "SELECT IdPytania AS liczba FROM pytania";
+        $response = $conn->query($query);
+        while($row = $response->fetch_assoc()) {
+            $_SESSION['remainingQuestions'][$row['IdPytania']] = true;   
+        }
+    }
+    function randomQuestionId() {
+        $remainingAmount = sizeof($_SESSION['remainingQuestions']);
+        $random = rand(0, $remainingAmount-1);
+        for($_SESSION['remainingQuestions'] as $key=>$value) {
+            
         }
     }
     function fetchQuestion($questionId) {

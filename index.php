@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gra ryzyk-fizyk</title>
+    <title>Ryzyk Fizyk</title>
 </head>
 <body>
-    <h1>Gra ryzyk-fizyk</h1>
+    <h1>Gra Ryzyk Fizyk</h1>
     <h2>Podaj ilość graczy</h2>
     <form action="gra.php" method="POST">
         <select name="playercount">

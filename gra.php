@@ -1,31 +1,18 @@
 <?php
-    if (isset($_POST['playercount'])) {
-        $playercount = $_POST["playercount"];
-    }
+    require_once "dbconnect.php";
+    initData();
+    addUsers($_POST['playerCount']);
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ryzyk Fizyk</title>
 </head>
 <body>
     <?php
-        $pytanie = "Ile dni ma rok?"; //PYTANIE POBIERANE Z BAZY DANYCH
-        echo "<h1>Pytanie: ".$pytanie."</h1>"
+        fetchQuestion()
     ?>
-    <form action="" method="POST">
-    <!--PRZEJŚCIE DO SEKCJI GŁOSOWANIA-->
-    <?php
-        for($i = 0; $i<$playercount; $i++)
-        {
-            echo "<input readonly hidden type='number' name='balance".$i."' value='200'><br>";
-            echo "<input type='number' name='answear".$i."'><br>";
-        }
-    ?>
-        <button type="submit">Potwierdz</button>
-    </form>
 </body>
 </html>
